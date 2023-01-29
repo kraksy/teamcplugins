@@ -6,7 +6,7 @@
 
     <groupId>io.github.kraksy</groupId>
     <artifactId>teaMC</artifactId>
-    <version>1.19.2-SNAPSHOT</version>
+    <version>1.19.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>TeaMC</name>
