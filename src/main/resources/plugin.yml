@@ -8,3 +8,6 @@ commands:
   duh:
     description: duh
     usage: /<command>
+  anvil:
+    description: portable anvil
+    usage: /<command>
