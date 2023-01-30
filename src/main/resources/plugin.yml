@@ -3,4 +3,8 @@ version: '${project.version}'
 main: io.github.kraksy.teamc.TeaMC
 api-version: 1.19
 authors: [ krek ]
-description: plugins for tea mc 
+description: plugins for tea mc
+commands:
+  duh:
+    description: duh
+    usage: /<command>
