@@ -12,6 +12,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
+import java.util.List;
+
+
 public class openGuiCommand implements CommandExecutor {
 
     @Override
@@ -22,14 +26,26 @@ public class openGuiCommand implements CommandExecutor {
             if (sender instanceof Player) {
 
                 Player player = (Player) sender;
-                Inventory anvilGui = Bukkit.createInventory(null, 9, "gem anvil");
+                Inventory anvilGui = Bukkit.createInventory(null, 27, "gemAnvil");
                 ItemStack item = new ItemStack(Material.ANVIL);
+                ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
                 ItemMeta itemmeta = item.getItemMeta();
                 itemmeta.setDisplayName("gem anvil");
                 item.setItemMeta(itemmeta);
-                anvilGui.addItem(item);
 
+                for (int i = 0; i < 12; i++) {
+
+                    anvilGui.setItem(i, glass);
+
+                    for (int x = 15; x < 27; x++) {
+
+                        anvilGui.setItem(x, glass);
+
+                    }
+                }
+
+                anvilGui.setItem(13,item);
 
                 player.openInventory(anvilGui);
 
