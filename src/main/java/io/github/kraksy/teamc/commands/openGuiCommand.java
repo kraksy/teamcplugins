@@ -10,6 +10,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class openGuiCommand implements CommandExecutor {
 
@@ -21,10 +22,14 @@ public class openGuiCommand implements CommandExecutor {
             if (sender instanceof Player) {
 
                 Player player = (Player) sender;
+                Inventory anvilGui = Bukkit.createInventory(null, 9, "gem anvil");
+                ItemStack item = new ItemStack(Material.ANVIL);
 
-                Inventory anvilGui = Bukkit.createInventory(player, 3, ChatColor.DARK_PURPLE + "anvil");
-                ItemStack anvil = new ItemStack(Material.ANVIL);
-                anvilGui.addItem(anvil);
+                ItemMeta itemmeta = item.getItemMeta();
+                itemmeta.setDisplayName("gem anvil");
+                item.setItemMeta(itemmeta);
+                anvilGui.addItem(item);
+
 
                 player.openInventory(anvilGui);
 
