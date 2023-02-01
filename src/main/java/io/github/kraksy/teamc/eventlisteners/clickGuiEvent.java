@@ -21,9 +21,25 @@ public class clickGuiEvent implements Listener {
 
         if (inv.equalsIgnoreCase("gemAnvil")){
 
-            event.setCancelled(true);
+            for (int i = 0; i < 12; i++) {
+
+                event.getView().getItem(i);
+
+                for (int x = 15; x < 27; x++) {
+
+                    event.getView().getItem(x);
+
+                }
+            }
 
             ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(String.valueOf(Material.WOODEN_SWORD))));
+            ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(String.valueOf(Material.GRAY_STAINED_GLASS_PANE))));
+
+            if (Objects.equals(event.getView().getItem(), item)) {
+
+                player.sendMessage("its working !");
+
+            }
 
             if (Objects.equals(event.getView().getItem(14), item)) {
 
