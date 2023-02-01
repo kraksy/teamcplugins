@@ -14,10 +14,15 @@ public class clickGuiEvent implements Listener {
     @EventHandler
     public void clickGui(InventoryClickEvent event) {
 
+        ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(String.valueOf(Material.WOODEN_SWORD))));
+
         Player player = (Player) event.getWhoClicked();
         String inv = event.getView().getTitle();
 
-        ///(event.getView().getTitle().equalsIgnoreCase("gem anvil"))
+        if (event.getCurrentItem().getType() == Material.GRAY_STAINED_GLASS_PANE) {
+            event.setCancelled(true);
+            return;
+        }
 
         if (inv.equalsIgnoreCase("gemAnvil")){
 
@@ -30,15 +35,6 @@ public class clickGuiEvent implements Listener {
                     event.getView().getItem(x);
 
                 }
-            }
-
-            ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(String.valueOf(Material.WOODEN_SWORD))));
-            ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(String.valueOf(Material.GRAY_STAINED_GLASS_PANE))));
-
-            if (Objects.equals(event.getView().getItem(), item)) {
-
-                player.sendMessage("its working !");
-
             }
 
             if (Objects.equals(event.getView().getItem(14), item)) {
