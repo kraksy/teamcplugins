@@ -1,16 +1,19 @@
-package io.github.kraksy.teamc.eventlisteners;
+package io.github.kraksy.teamc.gemAnvil;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Objects;
 
-public class clickGuiEvent implements Listener {
+public class anvilEvents implements Listener {
+
+    public int swordSlot = 14;
+
+
     @EventHandler
     public void clickGui(InventoryClickEvent event) {
 
@@ -21,23 +24,11 @@ public class clickGuiEvent implements Listener {
 
         if (event.getCurrentItem().getType() == Material.GRAY_STAINED_GLASS_PANE) {
             event.setCancelled(true);
-            return;
         }
 
         if (inv.equalsIgnoreCase("gemAnvil")){
 
-            for (int i = 0; i < 12; i++) {
-
-                event.getView().getItem(i);
-
-                for (int x = 15; x < 27; x++) {
-
-                    event.getView().getItem(x);
-
-                }
-            }
-
-            if (Objects.equals(event.getView().getItem(14), item)) {
+            if (Objects.equals(event.getView().getItem(swordSlot), item)) {
 
                 player.sendMessage("its working !");
 

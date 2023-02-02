@@ -1,22 +1,20 @@
-package io.github.kraksy.teamc.commands;
+package io.github.kraksy.teamc.gemAnvil;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-import java.util.List;
-
-
 public class openGuiCommand implements CommandExecutor {
+
+    public int anvilSlot = 13;
+    public int invSize = 27;
+    public String anvilName = "gem anvil";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -26,13 +24,19 @@ public class openGuiCommand implements CommandExecutor {
             if (sender instanceof Player) {
 
                 Player player = (Player) sender;
-                Inventory anvilGui = Bukkit.createInventory(null, 27, "gemAnvil");
+                Inventory anvilGui = Bukkit.createInventory(player, invSize, anvilName);
+
+                // create anvil and glass panels
                 ItemStack item = new ItemStack(Material.ANVIL);
                 ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
+                // rename anvil
                 ItemMeta itemmeta = item.getItemMeta();
-                itemmeta.setDisplayName("gem anvil");
+                assert itemmeta != null;
+                itemmeta.setDisplayName(anvilName);
                 item.setItemMeta(itemmeta);
+
+                // set glass panels around anvil
 
                 for (int i = 0; i < 12; i++) {
 
@@ -45,8 +49,9 @@ public class openGuiCommand implements CommandExecutor {
                     }
                 }
 
-                anvilGui.setItem(13,item);
+                // set anvil and open inventory
 
+                anvilGui.setItem(anvilSlot,item);
                 player.openInventory(anvilGui);
 
             }
