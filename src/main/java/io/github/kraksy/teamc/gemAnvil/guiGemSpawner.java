@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 
 public class guiGemSpawner implements CommandExecutor {
 
@@ -24,8 +25,8 @@ public class guiGemSpawner implements CommandExecutor {
                 Player player = (Player) sender;
                 Inventory anvilGui = Bukkit.createInventory(player, invSize, anvilName);
 
-                ItemStack item = new ItemStack(Material.ANVIL);
-                ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+                ItemStack GemRuby = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+                myAwesomeSkull.setItemMeta(myAwesomeSkullMeta);
 
 
                 player.openInventory(anvilGui);
