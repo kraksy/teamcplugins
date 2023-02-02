@@ -13,13 +13,13 @@ public final class TeaMC extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
 
-        System.out.println("its working!");
-
         getServer().getPluginManager().registerEvents( new onPlayerJoinLeaveListener(), this);
         getServer().getPluginManager().registerEvents( new testingEvents(), this);
         getServer().getPluginManager().registerEvents( new anvilEvents(), this);
+
         getCommand("duh").setExecutor(new sendMessageCommand());
         getCommand("anvil").setExecutor(new openGuiCommand());
+        getCommand("gemGui").setExecutor(new openGuiCommand());
 
     }
 

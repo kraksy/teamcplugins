@@ -11,3 +11,6 @@ commands:
   anvil:
     description: portable anvil
     usage: /<command>
+  gemGui:
+    description: gem gui
+    usage: /<command>
