@@ -1,5 +1,6 @@
 package io.github.kraksy.teamc;
 
+import io.github.kraksy.teamc.gemAnvil.guiGemSpawner;
 import io.github.kraksy.teamc.gemAnvil.openGuiCommand;
 import io.github.kraksy.teamc.commands.sendMessageCommand;
 import io.github.kraksy.teamc.gemAnvil.anvilEvents;
@@ -19,7 +20,7 @@ public final class TeaMC extends JavaPlugin implements Listener {
 
         getCommand("duh").setExecutor(new sendMessageCommand());
         getCommand("anvil").setExecutor(new openGuiCommand());
-        getCommand("gemGui").setExecutor(new openGuiCommand());
+        getCommand("gemGui").setExecutor(new guiGemSpawner());
 
     }
 
