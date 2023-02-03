@@ -25,9 +25,7 @@ public class guiGemSpawner implements CommandExecutor {
             if (sender instanceof Player) {
 
                 Player player = (Player) sender;
-                Inventory anvilGui = Bukkit.createInventory(player, invSize, anvilName);
-
-
+                Inventory gemGui = Bukkit.createInventory(player, invSize, anvilName);
 
                 ItemStack gem = new ItemStack(Material.PLAYER_HEAD);
                 SkullMeta skullMeta = (SkullMeta) gem.getItemMeta();
@@ -35,8 +33,8 @@ public class guiGemSpawner implements CommandExecutor {
                 skullMeta.setOwningPlayer(Bukkit.getOfflinePlayer("username of account"));
                 gem.setItemMeta(skullMeta);
 
-
-                player.openInventory(anvilGui);
+                player.openInventory(gemGui);
+                gemGui.setItem(1,gem);
             }
         }
 
