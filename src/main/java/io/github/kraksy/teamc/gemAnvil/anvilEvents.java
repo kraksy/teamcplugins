@@ -23,7 +23,6 @@ public class anvilEvents implements Listener  {
         ItemStack arsenal = new ItemStack(Material.WOODEN_SWORD);
         ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
-
         Player player = (Player) event.getWhoClicked();
         String inv = event.getView().getTitle();
 
@@ -33,7 +32,9 @@ public class anvilEvents implements Listener  {
 
             assert clickItem != null;
             if (clickItem.equals(glass)) {
+
                 event.setCancelled(true);
+
             }
 
             assert arsenalSpot != null;
