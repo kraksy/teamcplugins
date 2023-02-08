@@ -30,19 +30,16 @@ public class anvilEvents implements Listener  {
 
             ItemStack clickItem = event.getCurrentItem();
 
-            assert clickItem != null;
             if (clickItem.equals(glass)) {
 
                 event.setCancelled(true);
 
             }
 
-            assert arsenalSpot != null;
             if (arsenalSpot.equals(arsenal)) {
                 player.sendMessage("its working a!");
             }
 
-            assert gemSpot != null;
             if (gemSpot.equals(gem)) {
                 player.sendMessage("its working b!");
             }
