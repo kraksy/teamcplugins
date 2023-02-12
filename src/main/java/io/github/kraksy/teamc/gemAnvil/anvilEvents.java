@@ -19,30 +19,28 @@ public class anvilEvents implements Listener  {
         ItemStack arsenalSpot = event.getView().getItem(arsenalSlot);
         ItemStack gemSpot = event.getView().getItem(gemSlot);
 
-        ItemStack gem = new ItemStack(Material.PLAYER_HEAD);
-        ItemStack arsenal = new ItemStack(Material.WOODEN_SWORD);
-        ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+
+
 
         Player player = (Player) event.getWhoClicked();
         String inv = event.getView().getTitle();
 
         if (inv.equalsIgnoreCase("gemAnvil")){
 
-            ItemStack clickItem = event.getCurrentItem();
-
-            if (clickItem.equals(glass)) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(" ")) {
 
                 event.setCancelled(true);
 
+            } else if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("ruby")){
+
+                player.sendMessage("ha");
+
+            }else if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("gem anvil")){
+
+                player.sendMessage("ha");
+
             }
 
-            if (arsenalSpot.equals(arsenal)) {
-                player.sendMessage("its working a!");
-            }
-
-            if (gemSpot.equals(gem)) {
-                player.sendMessage("its working b!");
-            }
         }
     }
 }

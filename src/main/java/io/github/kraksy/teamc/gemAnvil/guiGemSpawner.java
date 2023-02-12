@@ -29,7 +29,6 @@ public class guiGemSpawner implements CommandExecutor {
 
                 ItemStack gem = new ItemStack(Material.PLAYER_HEAD);
                 SkullMeta skullMeta = (SkullMeta) gem.getItemMeta();
-                assert skullMeta != null;
                 skullMeta.setOwningPlayer(Bukkit.getOfflinePlayer(gemPlayerName));
                 skullMeta.setDisplayName(gemName);
                 gem.setItemMeta(skullMeta);

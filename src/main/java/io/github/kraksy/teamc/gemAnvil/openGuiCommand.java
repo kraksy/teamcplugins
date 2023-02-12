@@ -15,6 +15,7 @@ public class openGuiCommand implements CommandExecutor {
     public int anvilSlot = 13;
     public int invSize = 27;
     public String anvilName = "gem anvil";
+    public String GlassName = " ";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -27,14 +28,19 @@ public class openGuiCommand implements CommandExecutor {
                 Inventory anvilGui = Bukkit.createInventory(player, invSize, anvilName);
 
                 // create anvil and glass panels
-                ItemStack item = new ItemStack(Material.ANVIL);
+                ItemStack anvil = new ItemStack(Material.ANVIL);
                 ItemStack glass = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
+                ItemMeta glassMeta = glass.getItemMeta();
+                assert glassMeta != null;
+                glassMeta.setDisplayName(GlassName);
+                glass.setItemMeta(glassMeta);
+
                 // rename anvil
-                ItemMeta itemmeta = item.getItemMeta();
-                assert itemmeta != null;
-                itemmeta.setDisplayName(anvilName);
-                item.setItemMeta(itemmeta);
+                ItemMeta anvilMeta = anvil.getItemMeta();
+                assert anvilMeta != null;
+                anvilMeta.setDisplayName(anvilName);
+                anvil.setItemMeta(anvilMeta);
 
                 // set glass panels around anvil
 
@@ -51,7 +57,7 @@ public class openGuiCommand implements CommandExecutor {
 
                 // set anvil and open inventory
 
-                anvilGui.setItem(anvilSlot,item);
+                anvilGui.setItem(anvilSlot,anvil);
                 player.openInventory(anvilGui);
 
             }
