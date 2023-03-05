@@ -1,3 +1,3 @@
 # teamcplugins
 
-my training for future mc Server
+please dont directly copy the code , u can take inspiration tho
